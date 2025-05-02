@@ -109,8 +109,8 @@ export class AccountRepository extends Repository {
       trustThisDevice: '1',
       verificationMethod: '1',
     });
-    const { body } = await this.client.request.send<AccountRepositoryLoginResponseLogged_in_user>({
-      url: '/api/v1/accounts/two_factor_login/',
+    const { body } = await this.client.request.send({
+      url: '/api/v1/web/accounts/login/ajax/two_factor/',
       method: 'POST',
       form: this.client.request.sign({
         verification_code: options.verificationCode,
