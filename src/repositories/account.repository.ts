@@ -30,7 +30,7 @@ export class AccountRepository extends Repository {
     const response = await Bluebird.try(() =>
       this.client.request.send<AccountRepositoryLoginResponseRootObject>({
         method: 'POST',
-        url: '/api/v1/accounts/login/',
+        url: '/api/v1/accounts/login/ajax/',
         form: this.client.request.sign({
           username,
           enc_password: `#PWD_INSTAGRAM:4:${time}:${encrypted}`,
